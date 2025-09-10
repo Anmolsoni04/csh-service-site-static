@@ -1,4 +1,4 @@
-# Agensia Landing (React + Vite + TypeScript + Tailwind + react-spring)
+# Cybershields Technology Service Site (React + Vite + TypeScript + Tailwind + react-spring)
 
 A clean, modern landing page inspired by the Agensia Webflow template, rebuilt from scratch with React, Vite, Tailwind, and react-spring.
 Content and images are placeholders. No assets from the template are copied.
