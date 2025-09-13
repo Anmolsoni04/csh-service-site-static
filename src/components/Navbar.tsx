@@ -1,220 +1,62 @@
-// // src/components/Navbar.tsx
-// import React, { useEffect, useState } from "react";
-// import clsx from "clsx";
-// import { motion, AnimatePresence, easeOut } from "framer-motion";
-
-// const Navbar: React.FC = () => {
-//   const [scrolled, setScrolled] = useState(false);
-//   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     const onScroll = () => setScrolled(window.scrollY > 20);
-//     onScroll();
-//     window.addEventListener("scroll", onScroll, { passive: true });
-//     return () => window.removeEventListener("scroll", onScroll);
-//   }, []);
-
-//   const dropdownVariants = {
-//     hidden: { opacity: 0, y: -10 },
-//     visible: { 
-//       opacity: 1, 
-//       y: 0, 
-//       transition: { duration: 0.3, ease: easeOut } 
-//     },
-//     exit: { 
-//       opacity: 0, 
-//       y: -10, 
-//       transition: { duration: 0.2, ease: easeOut } 
-//     },
-//   };
-
-//   return (
-//     <header
-//       className={clsx(
-//         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-//         "backdrop-blur-sm",
-//         scrolled ? "bg-white shadow" : "bg-transparent"
-//       )}
-//       style={{
-//         WebkitBackdropFilter: "blur(8px)",
-//         backdropFilter: "blur(8px)",
-//       }}
-//     >
-//       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-//         {/* Logo */}
-//         <a
-//           href="#home"
-//           className={clsx(
-//             "font-extrabold text-2xl tracking-wide transition-colors duration-300",
-//             scrolled ? "text-blue-700" : "text-black"
-//           )}
-//           style={{ fontFamily: "Poppins, sans-serif" }}
-//         >
-//           Cybershields<span className="text-orange-500">.</span>
-//         </a>
-
-//         {/* Nav Links */}
-//         <nav
-//           className={clsx(
-//             "hidden md:flex items-center gap-8 text-base font-semibold tracking-wide relative transition-colors duration-300",
-//             scrolled ? "text-blue-700" : "text-black"
-//           )}
-//           style={{ fontFamily: "Poppins, sans-serif" }}
-//         >
-//           <a href="#home" className="hover:text-orange-500 transition">
-//             Home
-//           </a>
-//           <a href="#about" className="hover:text-orange-500 transition">
-//             About
-//           </a>
-
-//           {/* Services Dropdown */}
-//           <div
-//             className="relative"
-//             onMouseEnter={() => setActiveDropdown("services")}
-//             onMouseLeave={() => setActiveDropdown(null)}
-//           >
-//             <button className="hover:text-orange-500 transition">
-//               Services ▾
-//             </button>
-//             <AnimatePresence>
-//               {activeDropdown === "services" && (
-//                 <motion.div
-//                   variants={dropdownVariants}
-//                   initial="hidden"
-//                   animate="visible"
-//                   exit="exit"
-//                   className="absolute top-full mt-2 w-52 text-white rounded-lg shadow-lg py-2 overflow-hidden"
-//                   style={{
-//                     background:
-//                       "linear-gradient(135deg, #ff7e5f 0%, #0072ff 100%)",
-//                   }}
-//                 >
-//                   <a
-//                     href="#services"
-//                     className="block px-4 py-2 hover:bg-white/20 transition"
-//                   >
-//                     Web Development
-//                   </a>
-//                   <a
-//                     href="#services"
-//                     className="block px-4 py-2 hover:bg-white/20 transition"
-//                   >
-//                     Mobile Apps
-//                   </a>
-//                   <a
-//                     href="#services"
-//                     className="block px-4 py-2 hover:bg-white/20 transition"
-//                   >
-//                     Cloud Solutions
-//                   </a>
-//                 </motion.div>
-//               )}
-//             </AnimatePresence>
-//           </div>
-
-//           {/* Work Dropdown */}
-//           <div
-//             className="relative"
-//             onMouseEnter={() => setActiveDropdown("work")}
-//             onMouseLeave={() => setActiveDropdown(null)}
-//           >
-//             <button className="hover:text-orange-500 transition">Work ▾</button>
-//             <AnimatePresence>
-//               {activeDropdown === "work" && (
-//                 <motion.div
-//                   variants={dropdownVariants}
-//                   initial="hidden"
-//                   animate="visible"
-//                   exit="exit"
-//                   className="absolute top-full mt-2 w-52 text-white rounded-lg shadow-lg py-2 overflow-hidden"
-//                   style={{
-//                     background:
-//                       "linear-gradient(135deg, #ff7e5f 0%, #0072ff 100%)",
-//                   }}
-//                 >
-//                   <a
-//                     href="#portfolio"
-//                     className="block px-4 py-2 hover:bg-white/20 transition"
-//                   >
-//                     Case Studies
-//                   </a>
-//                   <a
-//                     href="#portfolio"
-//                     className="block px-4 py-2 hover:bg-white/20 transition"
-//                   >
-//                     Client Projects
-//                   </a>
-//                   <a
-//                     href="#portfolio"
-//                     className="block px-4 py-2 hover:bg-white/20 transition"
-//                   >
-//                     Research
-//                   </a>
-//                 </motion.div>
-//               )}
-//             </AnimatePresence>
-//           </div>
-
-//           <a href="#pricing" className="hover:text-orange-500 transition">
-//             Pricing
-//           </a>
-//           <a href="#clients" className="hover:text-orange-500 transition">
-//             Clients
-//           </a>
-//           <a href="#contact" className="hover:text-orange-500 transition">
-//             Contact
-//           </a>
-//         </nav>
-
-//         {/* CTA & Mobile Menu */}
-//         <div className="flex items-center gap-3">
-//           <a
-//             href="#contact"
-//             className="rounded-full bg-blue-600 hover:opacity-90 transition text-white px-5 py-2 text-sm font-semibold"
-//           >
-//             Get Started
-//           </a>
-//           <button
-//             className={clsx(
-//               "md:hidden p-2 rounded-md border transition-colors",
-//               scrolled ? "bg-blue-950 border-blue-700 text-br-700" : "border-black text-black"
-//             )}
-//           >
-//             ☰
-//           </button>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
-
-
-
 // src/components/Navbar.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
+import {
+  Code,
+  Layout,
+  Smartphone,
+  Palette,
+  Search,
+  Cloud,
+  ShoppingCart,
+  LifeBuoy,
+  BarChart3,
+  Briefcase,
+  FileText,
+  Layers,
+  Users,
+  Award,
+  Image,
+  Compass,
+  BookOpen,
+} from "lucide-react";
 
 const dropdownVariants = {
-  hidden: { opacity: 0, y: -10 },
+  hidden: {
+    opacity: 0,
+    scaleY: 0,
+    transformOrigin: "top center",
+  },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: easeOut },
+    scaleY: 1,
+    transformOrigin: "top center",
+    transition: {
+      duration: 0.1,
+      ease: easeOut,
+      when: "beforeChildren",
+      staggerChildren: 0.05,
+    },
   },
   exit: {
     opacity: 0,
-    y: -10,
-    transition: { duration: 0.2, ease: easeOut },
+    scaleY: 0,
+    transformOrigin: "top center",
+    transition: { duration: 0.3, ease: easeOut },
   },
+};
+
+const dropdownItemVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -223,42 +65,75 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleMouseEnter = (menu: string) => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setActiveDropdown(menu);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 200);
+  };
+
+  const services = [
+    { name: "Strategy & Consulting", icon: Compass },
+    { name: "Web Development", icon: Code },
+    { name: "Mobile Apps", icon: Smartphone },
+    { name: "UI/UX Design", icon: Palette },
+    { name: "SEO & Marketing", icon: Search },
+    { name: "Cloud Solutions", icon: Cloud },
+    { name: "E-commerce", icon: ShoppingCart },
+    { name: "Support & Maintenance", icon: LifeBuoy },
+    { name: "Analytics & Reporting", icon: BarChart3 },
+  ];
+
+  const work = [
+    { name: "Projects", icon: Briefcase },
+    { name: "Case Studies", icon: FileText },
+    { name: "Portfolio", icon: Layout },
+    { name: "Client Testimonials", icon: Users },
+    { name: "Industries", icon: Layers },
+    { name: "Research & Insights", icon: BookOpen },
+    { name: "Awards", icon: Award },
+    { name: "Gallery", icon: Image },
+    { name: "Process", icon: Compass },
+  ];
+
   return (
     <header
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all backdrop-blur-sm",
-        scrolled ? "bg-blue-950 shadow" : "bg-transparent"
+        scrolled ? "bg-blue-950 shadow-lg" : "bg-transparent"
       )}
     >
-      <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className={clsx(
             "font-extrabold text-2xl transition-colors",
             scrolled ? "text-white" : "text-black"
           )}
-          style={{ fontFamily: "'Poppins', sans-serif" }}
+          style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Cybershields<span className="text-blue-500">.</span>
-        </a>
+        </Link>
 
-        {/* Nav Links */}
+        {/* Nav */}
         <nav
           className={clsx(
             "hidden md:flex items-center gap-8 text-lg font-semibold transition-colors",
             scrolled ? "text-white" : "text-black"
           )}
-          style={{ fontFamily: "'Poppins', sans-serif" }}
+          style={{ fontFamily: "Poppins, sans-serif" }}
         >
-          <a href="#home" className="hover:text-blue-400">Home</a>
-          <a href="#about" className="hover:text-blue-400">About</a>
+          <Link to="/" className="hover:text-blue-400">Home</Link>
+          <Link to="/about" className="hover:text-blue-400">About</Link>
 
           {/* Services Dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setActiveDropdown("services")}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseEnter={() => handleMouseEnter("services")}
+            onMouseLeave={handleMouseLeave}
           >
             <button className="hover:text-blue-400">Services ▾</button>
             <AnimatePresence>
@@ -268,37 +143,35 @@ const Navbar: React.FC = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute top-full mt-2 w-52 rounded-lg shadow-lg py-2 overflow-hidden bg-blue-950"
+                  className="fixed inset-x-0 top-[80px] mt-2 z-50 bg-white shadow-xl border-t border-gray-200"
                 >
-                  <a
-                    className="block px-4 py-2 hover:bg-blue-900 text-white transition-colors"
-                    href="#"
-                  >
-                    Strategy
-                  </a>
-                  <a
-                    className="block px-4 py-2 hover:bg-blue-900 text-white transition-colors"
-                    href="#"
-                  >
-                    Web Development
-                  </a>
-                  <a
-                    className="block px-4 py-2 hover:bg-blue-900 text-white transition-colors"
-                    href="#"
-                  >
-                    Marketing
-                  </a>
+                  <div className="max-w-[1200px] mx-auto py-8 px-16 grid grid-cols-3 gap-10">
+                    {services.map(({ name, icon: Icon }) => (
+                      <motion.div
+                        key={name}
+                        variants={dropdownItemVariants}
+                        className="flex items-center gap-3 px-2 py-2 hover:bg-blue-50 rounded-md transition-colors"
+                      >
+                        <Icon className="w-5 h-5 text-blue-600" />
+                        <Link
+                          to={`/services/${name.toLowerCase().replace(/ & | /g, "-")}`}
+                          className="text-gray-800"
+                        >
+                          {name}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
-
           </div>
 
           {/* Work Dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setActiveDropdown("work")}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseEnter={() => handleMouseEnter("work")}
+            onMouseLeave={handleMouseLeave}
           >
             <button className="hover:text-blue-400">Work ▾</button>
             <AnimatePresence>
@@ -308,37 +181,46 @@ const Navbar: React.FC = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute top-full mt-2 w-52 rounded-lg shadow-lg py-2 overflow-hidden bg-blue-950"
-                  
+                  className="fixed inset-x-0 top-[80px] mt-2 z-50 bg-white shadow-xl border-t border-gray-200"
                 >
-                  <a className="block px-4 py-2 hover:bg-blue-900 text-white transition-colors" href="#">
-                    Projects
-                  </a>
-                  <a className="block px-4 py-2 hover:bg-blue-900 text-white transition-colors" href="#">
-                    Case Studies
-                  </a>
-                  <a className="block px-4 py-2 hover:bg-blue-900 text-white transition-colors" href="#">
-                    Portfolio
-                  </a>
+                  <div className="max-w-[1200px] mx-auto py-8 px-16 grid grid-cols-3 gap-10">
+                    {work.map(({ name, icon: Icon }) => (
+                      <motion.div
+                        key={name}
+                        variants={dropdownItemVariants}
+                        className="flex items-center gap-3 px-2 py-2 hover:bg-blue-50 rounded-md transition-colors"
+                      >
+                        <Icon className="w-5 h-5 text-blue-600" />
+                        <Link
+                          to={`/work/${name.toLowerCase().replace(/ & | /g, "-")}`}
+                          className="text-gray-800"
+                        >
+                          {name}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          <a href="#pricing" className="hover:text-blue-400">Pricing</a>
-          <a href="#clients" className="hover:text-blue-400">Clients</a>
-          <a href="#contact" className="hover:text-blue-400">Contact</a>
+
+
+          <Link to="/pricing" className="hover:text-blue-400">Pricing</Link>
+          <Link to="/clients" className="hover:text-blue-400">Clients</Link>
+          <Link to="/contact" className="hover:text-blue-400">Contact</Link>
         </nav>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <div className="flex items-center gap-3">
-          <a
-            href="#contact"
-            className="rounded-full bg-blue-600 text-white px-5 py-2 text-sm font-semibold hover:bg-blue-500 transition"
+          <Link
+            to="/contact"
+            className="rounded-full bg-gradient-to-r from-orange-500 to-blue-600 text-white px-5 py-2 text-sm font-semibold hover:opacity-90 transition"
           >
             Get Started
-          </a>
-          <button className="md:hidden p-2 rounded-md border text-white">☰</button>
+          </Link>
+          <button className="md:hidden p-2 rounded-md border">☰</button>
         </div>
       </div>
     </header>
