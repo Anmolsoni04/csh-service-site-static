@@ -30,13 +30,20 @@ const Hero: React.FC = () => {
   });
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-20">
+    <section className="relative overflow-hidden pt-28 pb-20"
+    style={{
+      backgroundImage: "linear-gradient(to right, rgba(10,15,44,0.95), rgba(10,15,44,0.95)), url('https://www.transparenttextures.com/patterns/dark-mosaic.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}
+    >
+      <div className="absolute inset-0 bg-black/40" />
       <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
         {/* LEFT CONTENT */}
         <div className="md:w-6/12 text-center md:text-left">
           <animated.h1
             style={heading}
-            className="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900"
+            className="text-4xl md:text-6xl font-extrabold leading-tight text-white"
           >
             Elevate your brand with{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
@@ -45,13 +52,13 @@ const Hero: React.FC = () => {
             that converts.
           </animated.h1>
 
-          <p className="mt-6 max-w-xl mx-auto md:mx-0 text-lg text-gray-700">
+          <p className="mt-6 max-w-xl mx-auto md:mx-0 text-lg text-white">
             We craft thoughtful experiences for ambitious teams—branding,
             websites and campaigns fueled by strategy.
           </p>
 
           {/* CTA BUTTONS */}
-          <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+          {/* <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
             <a
               href="#portfolio"
               className="rounded-full bg-yellow-400 text-gray-900 px-6 py-3 font-semibold shadow-md hover:bg-yellow-500 transition"
@@ -64,10 +71,10 @@ const Hero: React.FC = () => {
             >
               Services
             </a>
-          </div>
+          </div> */}
 
           {/* CHIPS */}
-          <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
+          {/* <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
             {chips.map((style, i) => (
               <animated.span
                 key={i}
@@ -77,7 +84,7 @@ const Hero: React.FC = () => {
                 {defaultWords[i]}
               </animated.span>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* RIGHT IMAGE */}

@@ -17,7 +17,7 @@ const Home: React.FC = () => {
             <SplitScrollWords />
             <MoreAboutCsh />
             <Gallery />
-            <Portfolio />
+            {/* <Portfolio /> */}
         </>
     )
 }
