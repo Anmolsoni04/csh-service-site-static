@@ -80,28 +80,28 @@ const Navbar: React.FC = () => {
   };
 
   const services = [
-    { name: "Strategy & Consulting", icon: Compass },
-    { name: "Web Development", icon: Code },
-    { name: "Mobile Apps", icon: Smartphone },
-    { name: "UI/UX Design", icon: Palette },
-    { name: "SEO & Marketing", icon: Search },
-    { name: "Cloud Solutions", icon: Cloud },
-    { name: "E-commerce", icon: ShoppingCart },
-    { name: "Support & Maintenance", icon: LifeBuoy },
-    { name: "Analytics & Reporting", icon: BarChart3 },
+    { name: "Strategy", icon: Compass, path: "/services/strategy-consulting" },
+    { name: "Web Development", icon: Code, path: "/services/webdevelopment" },
+    { name: "Marketing", icon: Smartphone, path: "/services/marketing" },
+    { name: "TechBlogs", icon: Palette, path: "/services/techblogs" },
+    { name: "AiBlogs", icon: Search, path: "/services/ai-blogs" },
+    { name: "DigitalKnowledge", icon: Cloud, path: "/services/digital-knowledge" },
+    { name: "SmartLearning", icon: ShoppingCart, path: "/services/smart-learning" },
+    { name: "Others", icon: BarChart3, path: "/services/others" },
   ];
 
-  const work = [
-    { name: "Projects", icon: Briefcase },
-    { name: "Case Studies", icon: FileText },
-    { name: "Portfolio", icon: Layout },
-    { name: "Client Testimonials", icon: Users },
-    { name: "Industries", icon: Layers },
-    { name: "Research & Insights", icon: BookOpen },
-    { name: "Awards", icon: Award },
-    { name: "Gallery", icon: Image },
-    { name: "Process", icon: Compass },
-  ];
+
+  // const work = [
+  //   { name: "Projects", icon: Briefcase },
+  //   { name: "Case Studies", icon: FileText },
+  //   { name: "Portfolio", icon: Layout },
+  //   { name: "Client Testimonials", icon: Users },
+  //   { name: "Industries", icon: Layers },
+  //   { name: "Research & Insights", icon: BookOpen },
+  //   { name: "Awards", icon: Award },
+  //   { name: "Gallery", icon: Image },
+  //   { name: "Process", icon: Compass },
+  // ];
 
   return (
     <header
@@ -152,32 +152,30 @@ const Navbar: React.FC = () => {
                   exit="exit"
                   className="fixed inset-x-0 top-[80px] mt-2 z-50 bg-white shadow-xl border-t border-gray-200"
                 >
-                  <div className="max-w-[1200px] mx-auto py-8 px-16 grid grid-cols-3 gap-10">
-                    {services.map(({ name, icon: Icon }) => (
+                  <div className="max-w-[1200px] mx-auto py-8 px-16 grid grid-cols-4 gap-8">
+                    {services.map(({ name, icon: Icon, path }) => (
                       <motion.div
                         key={name}
                         variants={dropdownItemVariants}
                         className="flex items-center gap-3 px-2 py-2 hover:bg-blue-50 rounded-md transition-colors"
                       >
                         <Icon className="w-5 h-5 text-blue-600" />
-                        <Link
-                          to={`/services/${name.toLowerCase().replace(/ & | /g, "-")}`}
-                          className="text-gray-800"
-                        >
+                        <Link to={path} className="text-gray-800">
                           {name}
                         </Link>
                       </motion.div>
                     ))}
                   </div>
+
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          <Link to="/about" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Portfolio</Link>
-          <Link to="/about" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Products</Link>
+          <Link to="/portfolio" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Portfolio</Link>
+          <Link to="/products" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Products</Link>
           <Link to="/pricing" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Pricing</Link>
-          <Link to="/pricing" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Blogs</Link>
+          <Link to="/blogs" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Blogs</Link>
           <Link to="/contact" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Contact</Link>
 
           {/* Work Dropdown */}

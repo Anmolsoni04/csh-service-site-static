@@ -1,6 +1,7 @@
 // src/components/Hero.tsx
 import React from "react";
 import { animated, useSpring, useTrail } from "@react-spring/web";
+import aboutBg from "@/components/svg/bg-about.svg";
 
 // Default words for animated chips
 const defaultWords = ["Design", "Branding", "Strategy", "Web"];
@@ -30,13 +31,18 @@ const Hero: React.FC = () => {
   });
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-20"
-    style={{
+    // <section className="relative overflow-hidden pt-28 pb-20">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-r from-black via-blue-900 to-indigo-900 text-white">
+    {/* // style={{
       backgroundImage: "linear-gradient(to right, rgba(10,15,44,0.95), rgba(10,15,44,0.95)), url('https://www.transparenttextures.com/patterns/dark-mosaic.png')",
       backgroundSize: "cover",
       backgroundPosition: "center"
-    }}
-    >
+    }} */}
+    <img
+        src={aboutBg}
+        alt="background"
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
+      />
       <div className="absolute inset-0 bg-black/40" />
       <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
         {/* LEFT CONTENT */}
@@ -89,7 +95,7 @@ const Hero: React.FC = () => {
 
         {/* RIGHT IMAGE */}
         <div className="md:w-6/12 relative">
-          <div className="aspect-[4/3] rounded-3xl overflow-hidden border shadow-xl">
+          <div className="aspect-[4/3] rounded-3xl overflow-hidden border">
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop"
               alt="Creative workspace"
