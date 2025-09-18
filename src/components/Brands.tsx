@@ -38,7 +38,7 @@ const logos = [
   },
 ];
 
-const ServicesCarousel: React.FC = () => {
+const Brands: React.FC = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
   const anim = useSpring({ opacity: inView ? 1 : 0, y: inView ? 0 : 20 });
 
@@ -58,11 +58,11 @@ const ServicesCarousel: React.FC = () => {
         </animated.div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-8">
           {logos.map((logo, idx) => (
             <div
               key={idx}
-              className="transition-all duration-300 hover:grayscale-0 hover:scale-105"
+              className="bg-black/30 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-black/50 transition"
             >
               <img
                 src={logo.src}
@@ -77,4 +77,4 @@ const ServicesCarousel: React.FC = () => {
   );
 };
 
-export default ServicesCarousel;
+export default Brands;
