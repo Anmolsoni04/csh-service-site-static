@@ -1,8 +1,8 @@
 
 import React from "react";
 // import Hero from "@/components/Hero";
-import ServicesCarousel from "@/components/ServicesCarousel";
-import Clients from "@/components/Clients";
+import Brands from "@/components/Brands";
+import ServicesBase from "@/components/ServicesBase";
 import SplitScrollWords from "@/components/SplitScrollWords";
 import MoreAboutCsh from "@/components/MoreAboutCsh";
 import Gallery from "@/components/Gallery";
@@ -13,8 +13,8 @@ const Home: React.FC = () => {
     return (
         <>
             <Hero/>
-            <ServicesCarousel />
-            <Clients />
+            <Brands />
+            <ServicesBase />
             <SplitScrollWords />
             <MoreAboutCsh />
             <Gallery />

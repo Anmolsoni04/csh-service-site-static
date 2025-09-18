@@ -137,36 +137,36 @@ const AboutBusiness: React.FC = () => {
                 </div>
             </div> */}
             {/* Logos Section */}
-<div className="relative container mx-auto px-6 lg:px-20 mt-20 text-center">
-  <h3 className="text-3xl font-bold text-white mb-10">
-    More Than 12,500 Teams Use Agentix Digital Agency
-  </h3>
+            <div className="relative container mx-auto px-6 lg:px-20 mt-20 text-center">
+                <h3 className="text-3xl font-bold text-white mb-10">
+                    More Than 12,500 Teams Use Agentix Digital Agency
+                </h3>
 
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-    {[
-      { src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", name: "Logo Ipsum" },
-      { src: "https://cdn.worldvectorlogo.com/logos/microsoft-6.svg", name: "Dummy Logo" },
-      { src: "https://cdn.worldvectorlogo.com/logos/spotify-2.svg", name: "Digital Dummy" },
-      { src: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", name: "Logo Text" },
-      { src: "https://cdn.worldvectorlogo.com/logos/netflix-3.svg", name: "Company Name" },
-      { src: "https://cdn.worldvectorlogo.com/logos/airbnb-2.svg", name: "Brand Name" },
-      { src: "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg", name: "Logo Name" },
-      { src: "https://cdn.worldvectorlogo.com/logos/shopify.svg", name: "Dummy Logo" },
-    ].map((logo, i) => (
-      <div
-        key={i}
-        className="bg-black/30 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-black/50 transition"
-      >
-        <img
-          src={logo.src}
-          alt={logo.name}
-          className="h-10 mb-3 object-contain hover:grayscale-0 transition"
-        />
-        <p className="text-gray-300 text-sm">{logo.name}</p>
-      </div>
-    ))}
-  </div>
-</div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                    {[
+                        { src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", name: "Logo Ipsum" },
+                        { src: "https://cdn.worldvectorlogo.com/logos/microsoft-6.svg", name: "Dummy Logo" },
+                        { src: "https://cdn.worldvectorlogo.com/logos/spotify-2.svg", name: "Digital Dummy" },
+                        { src: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", name: "Logo Text" },
+                        { src: "https://cdn.worldvectorlogo.com/logos/netflix-3.svg", name: "Company Name" },
+                        { src: "https://cdn.worldvectorlogo.com/logos/airbnb-2.svg", name: "Brand Name" },
+                        { src: "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg", name: "Logo Name" },
+                        { src: "https://cdn.worldvectorlogo.com/logos/shopify.svg", name: "Dummy Logo" },
+                    ].map((logo, i) => (
+                        <div
+                            key={i}
+                            className="bg-black/30 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-black/50 transition"
+                        >
+                            <img
+                                src={logo.src}
+                                alt={logo.name}
+                                className="h-10 mb-3 object-contain hover:grayscale-0 transition"
+                            />
+                            {/* <p className="text-gray-300 text-sm">{logo.name}</p> */}
+                        </div>
+                    ))}
+                </div>
+            </div>
 
 
 
