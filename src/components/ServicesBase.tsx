@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react"; // arrow icon
 
 const services = [
   {
@@ -70,6 +71,7 @@ const ServicesBase: React.FC = () => {
       id="services"
       className="relative bg-gradient-to-r from-orange-100 to-white py-20"
     >
+      <h1 className="text-5xl flex justify-center items-center font-semibold">Our Services</h1>
       <div className="mx-auto max-w-7xl px-4 grid grid-cols-3 gap-12 items-center">
         {/* Left Services */}
         <div className="space-y-6">
@@ -94,7 +96,7 @@ const ServicesBase: React.FC = () => {
                       : "border-gray-300 text-gray-500 hover:bg-gray-100"
                   )}
                 >
-                  {i + 1}
+                  <ArrowRight className="h-8 w-8"/>
                 </span>
               </div>
             </Link>
@@ -165,7 +167,7 @@ const ServicesBase: React.FC = () => {
                       : "border-gray-300 text-gray-500 hover:bg-gray-100"
                   )}
                 >
-                  {i + 5}
+                  <ArrowRight className="h-8 w-8"/>
                 </span>
               </div>
             </Link>

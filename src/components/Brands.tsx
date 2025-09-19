@@ -1,41 +1,17 @@
-// src/components/ServicesCarousel.tsx
+// src/components/Brands.tsx
 import React from "react";
 import { useInView } from "@/hooks/useInView";
 import { animated, useSpring } from "react-spring";
 
 const logos = [
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-    alt: "Amazon",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-    alt: "Microsoft",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-    alt: "Netflix",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-    alt: "IBM",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-    alt: "Google",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg",
-    alt: "Adobe",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
-    alt: "Salesforce",
-  },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg",
-    alt: "Spotify",
-  },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", alt: "Amazon" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg", alt: "Microsoft" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg", alt: "Netflix" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", alt: "IBM" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", alt: "Google" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg", alt: "Adobe" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg", alt: "Salesforce" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg", alt: "Spotify" },
 ];
 
 const Brands: React.FC = () => {
@@ -43,15 +19,15 @@ const Brands: React.FC = () => {
   const anim = useSpring({ opacity: inView ? 1 : 0, y: inView ? 0 : 20 });
 
   return (
-    <section id="services" className="section bg-soft py-16">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-4 text-center" ref={ref}>
         <animated.div style={anim as any} className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white">
             More than{" "}
-            <span className="text-accent">12,500 Teams</span> use Agensia
+            <span className="text-yellow-400">12,500 Teams</span> use Agensia
             Digital Agency
           </h2>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-3 text-gray-200 max-w-2xl mx-auto">
             Trusted by the world’s leading companies for design, branding, and
             digital solutions.
           </p>
@@ -59,19 +35,19 @@ const Brands: React.FC = () => {
 
         {/* Logos Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-8">
-          {logos.map((logo, idx) => (
-            <div
-              key={idx}
-              className="bg-black/30 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-black/50 transition"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="h-12 w-auto object-contain"
-              />
-            </div>
-          ))}
-        </div>
+           {logos.map((logo, idx) => (
+             <div
+               key={idx}
+               className="bg-white/10 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-black/50 transition"
+             >
+               <img
+                 src={logo.src}
+                 alt={logo.alt}
+                 className="h-12 w-auto object-contain"
+               />
+             </div>
+           ))}
+         </div>
       </div>
     </section>
   );
