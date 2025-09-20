@@ -7,6 +7,7 @@ import SplitScrollWords from "@/components/SplitScrollWords";
 import MoreAboutCsh from "@/components/MoreAboutCsh";
 import PortfolioBase from "@/components/PortfolioBase";
 import Hero from "@/components/Hero";
+import TestimonialBase from "@/components/TestimonialBase"
 // import Portfolio from "@/components/Portfolio"
 
 const Home: React.FC = () => {
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
             <SplitScrollWords />
             <MoreAboutCsh />
             <PortfolioBase />
+            <TestimonialBase />
             {/* <Portfolio /> */}
         </>
     )
