@@ -2,6 +2,7 @@
 import React from "react";
 import { FaTwitter, FaLinkedin, FaDribbble, FaEnvelope, FaPhone } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { Link } from "react-router-dom"
 
 const Footer: React.FC = () => {
   return (
@@ -10,14 +11,14 @@ const Footer: React.FC = () => {
         {/* Branding */}
         <div>
           <h2 className="text-2xl font-extrabold text-blue-800">
-            Cybershields<span className="text-blue-400">.</span>
+          <Link to="/" className="hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 hover:text-transparent hover:bg-clip-text">Cybershields <span className="text-blue-400">.</span></Link>
           </h2>
           <p className="mt-4">
             Building secure & innovative digital experiences for tomorrow.
           </p>
-          <div className="mt-6 flex items-center space-x-3 text-blue-900">
+          <div className="mt-6 flex items-center space-x-3">
             <FaEnvelope className="text-blue-900" />
-            <span>hello@cybershields.com</span>
+            <span className="text-blue-700">hello@cybershields.com</span>
           </div>
           <div className="flex items-center space-x-3 mt-2">
             <FaPhone className="text-blue-900" />
@@ -30,22 +31,55 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-semibold text-lg">Company</h3>
             <ul className="mt-4 space-y-2">
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">About</a></li>
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Careers</a></li>
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Blog</a></li>
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Contact</a></li>
+              <li>
+                <Link to="/about" className="text-blue-700 hover:text-blue-900 transition">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/strategy-consulting" className="text-blue-700 hover:text-blue-900 transition">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" className="text-blue-700 hover:text-blue-900 transition">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-blue-700 hover:text-blue-900 transition">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-lg">Services</h3>
             <ul className="mt-4 space-y-2">
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Web Development</a></li>
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">UI/UX Design</a></li>
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Digital Marketing</a></li>
-              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Cloud Security</a></li>
+              <li>
+                <Link to="/services/webdevelopment" className="text-blue-700 hover:text-blue-900 transition">
+                  Web Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/marketing" className="text-blue-700 hover:text-blue-900 transition">
+                  Marketing
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/techblogs" className="text-blue-700 hover:text-blue-900 transition">
+                  Tech Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/others" className="text-blue-700 hover:text-blue-900 transition">
+                  Others
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
+
 
         {/* Newsletter */}
         <div>
