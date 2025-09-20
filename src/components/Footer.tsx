@@ -5,22 +5,22 @@ import { IoNotificationsOutline } from "react-icons/io5";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0a0f29] text-gray-300">
+    <footer className="bg-gray-200">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-12">
         {/* Branding */}
         <div>
-          <h2 className="text-2xl font-extrabold text-white">
+          <h2 className="text-2xl font-extrabold text-blue-800">
             Cybershields<span className="text-blue-400">.</span>
           </h2>
-          <p className="mt-4 text-gray-400">
+          <p className="mt-4">
             Building secure & innovative digital experiences for tomorrow.
           </p>
-          <div className="mt-6 flex items-center space-x-3 text-gray-400">
-            <FaEnvelope className="text-blue-400" />
+          <div className="mt-6 flex items-center space-x-3 text-blue-900">
+            <FaEnvelope className="text-blue-900" />
             <span>hello@cybershields.com</span>
           </div>
-          <div className="flex items-center space-x-3 text-gray-400 mt-2">
-            <FaPhone className="text-blue-400" />
+          <div className="flex items-center space-x-3 mt-2">
+            <FaPhone className="text-blue-900" />
             <span>+91 99999 99999</span>
           </div>
         </div>
@@ -28,29 +28,29 @@ const Footer: React.FC = () => {
         {/* Links */}
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <h3 className="font-semibold text-lg text-white">Company</h3>
+            <h3 className="font-semibold text-lg">Company</h3>
             <ul className="mt-4 space-y-2">
-              <li><a href="#" className="hover:text-blue-400 transition">About</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Careers</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Blog</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Contact</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">About</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Careers</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Blog</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Contact</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-lg text-white">Services</h3>
+            <h3 className="font-semibold text-lg">Services</h3>
             <ul className="mt-4 space-y-2">
-              <li><a href="#" className="hover:text-blue-400 transition">Web Development</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Digital Marketing</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Cloud Security</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Web Development</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">UI/UX Design</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Digital Marketing</a></li>
+              <li><a href="#" className="text-blue-800 hover:text-blue-800 transition">Cloud Security</a></li>
             </ul>
           </div>
         </div>
 
         {/* Newsletter */}
         <div>
-          <h3 className="font-semibold text-lg text-white">Stay Updated</h3>
-          <p className="mt-3 text-gray-400">
+          <h3 className="font-semibold text-lg">Stay Updated</h3>
+          <p className="mt-3">
             Subscribe to get latest updates & tech insights.
           </p>
           <form className="mt-5 relative">
@@ -71,14 +71,13 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom bar */}
-      {/* Bottom bar */}
       <div className="border-t border-gray-700 py-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 text-gray-400 text-sm">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 text-sm">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <p>© {new Date().getFullYear()} Cybershields. All rights reserved.</p>
             <a
               href="/privacy-policy"
-              className="hover:text-blue-400 transition"
+              className="hover:text-blue-800 transition"
             >
               Privacy Policy
             </a>
@@ -91,7 +90,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-
     </footer>
   );
 };

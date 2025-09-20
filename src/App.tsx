@@ -19,10 +19,12 @@ import ClientsPage from "@/pages/Clients";
 import Contact from "@/pages/Contact";
 import Footer from "@/components/Footer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import UseScrollToTop from "./components/UseScrollToTop";
 // import Hero from "./components/Hero";
 const App: React.FC = () => {
   return (
     <Router>
+      <UseScrollToTop/>
       <div className="antialiased">
         <Navbar />
         {/* <Hero /> */}
