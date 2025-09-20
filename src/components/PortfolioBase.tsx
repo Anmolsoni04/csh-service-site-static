@@ -1,5 +1,6 @@
 // src/components/PortfolioBase.tsx
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
 
 const items = [
   {
@@ -7,36 +8,42 @@ const items = [
     title: "Digital Marketing",
     desc: "Multimedia Content // Content Strategy",
     category: "Branding",
+    slug: "dm"
   },
   {
     src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800",
     title: "E-Commerce Solutions",
     desc: "Brand Guidelines // Logo Design",
     category: "Creative",
+    slug: "ecom"
   },
   {
     src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800",
     title: "Product Design",
     desc: "Visual Design // Branding",
     category: "Design",
+    slug: "product-design"
   },
   {
     src: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800",
     title: "Web Development",
     desc: "Web applications // Developer skills",
     category: "Branding",
+    slug: "web-dev"
   },
   {
     src: "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=800",
     title: "Branding Design",
     desc: "Products selling // Online Design",
     category: "Creative",
+    slug: "brand-design"
   },
   {
     src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800",
     title: "Content Creation",
     desc: "Organic Research // Keyword Suggestions",
     category: "Design",
+    slug: "content-creation"
   },
 ];
 
@@ -78,27 +85,25 @@ const PortfolioBase: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8" id="portfolio">
           {filteredItems.map((item, i) => (
-            <div
-              key={i}
-              className="group overflow-hidden cursor-pointer"
-            >
+            <Link to = {`/portfolio/${item.slug}`} key={i}>
+            <div className="group overflow-hidden cursor-pointer">
               {/* Image */}
               <div className="overflow-hidden">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-110"
+              <img
+                src={item.src}
+                alt={item.title}
+                className="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-
               {/* Text */}
               <div className="mt-4">
                 <h3 className="font-semibold text-lg">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
             </div>
+          </Link>
           ))}
         </div>
       </div>

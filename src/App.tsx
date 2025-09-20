@@ -11,7 +11,14 @@ import AiBlogs from "./pages/services/AiBlogs";
 import DigitalKnowledge from "./pages/services/DigitalKnowledge";
 import SmartLearning from "./pages/services/SmartLearning";
 import Others from "./pages/services/Others";
-import Portfolio from "@/pages/Portfolio";
+
+import BrandDesign from "@/pages/portfolio/BrandDesign";
+import ContentCreation from "@/pages/portfolio/ContentCreation";
+import DigitalMarketing from "@/pages/portfolio/DigitalMarketing";
+import Ecommerce from "@/pages/portfolio/Ecommerce";
+import ProductDesign from "@/pages/portfolio/ProductDesign";
+import WebDevPortfolio from "@/pages/portfolio/WebDevPortfolio";
+
 import Products from "@/pages/Products";
 import Pricing from "@/pages/Pricing";
 import Blogs from "@/pages/Blogs";
@@ -32,7 +39,12 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/portfolio" element= {<Portfolio />} />
+            <Route path="/portfolio/brand-design" element= {<BrandDesign />} />
+            <Route path="/portfolio/content-creation" element= {<ContentCreation />} />
+            <Route path="/portfolio/dm" element= {<DigitalMarketing />} />
+            <Route path="/portfolio/ecom" element= {<Ecommerce />} />
+            <Route path="/portfolio/product-design" element= {<ProductDesign />} />
+            <Route path="/portfolio/web-dev" element= {<WebDevPortfolio />} />
             <Route path="/services/strategy-consulting" element={<Strategy />} />
             <Route path="/services/webdevelopment" element={<WebDevelopment />} />
             <Route path="/services/marketing" element={<Marketing />} />
